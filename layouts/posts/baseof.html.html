@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{ .Title }}</title>
+    {{ partial "meta.html" . }}
+    {{ partial "head-links.html" . }}
+  </head>
+  <body>
+    {{ partial "nav.html" . }}
+    <div class="container-fluid nopadding">	
+    {{ block "body" . }}
+    {{ end }}
+    {{block "addscripts" . }}
+    {{end}}
+    {{ partial "site-scripts.html" . }}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,3 @@
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.7.0/dist/paper.min.css">
+{{ $sass := resources.Get "sass/main.scss" | resources.ToCSS | minify | fingerprint }}
+<link href="{{ $sass.Permalink }}"  integrity="{{ $sass.Data.Integrity }}"  rel="stylesheet" type="text/css">

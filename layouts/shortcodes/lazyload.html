@@ -1,0 +1,19 @@
+{{ $filename := .Get 0}}
+{{ $image := .Page.Resources.GetMatch (printf "*%s*" (.Get 0)) }}
+{{ $text := .Get 1 }}
+{{ $customClass := .Get 2}}
+{{ $width := .Get 3}}
+{{ $height := .Get 4}}
+
+{{ if ne $image.ResourceType "image" }}
+   {{ errorf "file %s is not an image" $filename }}
+{{ end }}
+
+{{$original := $image}}
+
+{{$width := (or $width ($original.Width) )}}
+{{$height := (or $height ($original.Height) )}}
+
+{{ $thumb := ($original.Resize "48x q20" | images.Filter (images.GaussianBlur 6) (images.Pixelate 8)  ).RelPermalink }}
+
+<img src="{{ $thumb }}" width="{{ $width }}" height="{{ $height }}" alt="{{ $text }}" data-src="{{$original.RelPermalink}}" class="img-lazy-load-placeholder {{$customClass}}" />

@@ -1,0 +1,25 @@
+{{ $url := .File.Dir }}
+{{ $class := $.Scratch.Get "class" }}
+{{ $urlList := split $url "/" }}
+
+{{$key :=  index $urlList 0}}
+
+{{ if .Site.Data }}
+    {{ $solutionTypeData := index .Site.Data $key}}
+    <div class="text-center">
+        <h1>{{ $solutionTypeData.data.title }}</h1>
+    </div>
+{{end}}
+
+
+<div class="paper container container-lg margin-bottom-large">
+    <div class="card" style="width: 20rem;margin: 0 auto">
+        <div class="card-body">
+          <h4 class="card-title">My awesome Paper card!</h4>
+          <h5 class="card-subtitle">Nice looking subtitle.</h5>
+          <p class="card-text">You can also place image on the bottom of the card.</p>
+          <button>Let me go here!</button>
+        </div>
+        <img class="image-bottom" src="https://unsplash.it/550/250" alt="Card example image">
+    </div>    
+</div>

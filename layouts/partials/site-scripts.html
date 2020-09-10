@@ -1,0 +1,9 @@
+  <!-- Google Tag Manager (noscript) -->
+  
+  {{ $jquery:= resources.Get "js/jquery-3.4.1.min.js" | resources.Minify  | resources.Fingerprint}}
+  <script defer src='{{$jquery.RelPermalink}}' integrity="{{ $jquery.Data.Integrity }}"></script>
+  {{ $lazy := resources.Get "js/jquery.lazy.min.js" | resources.Minify | resources.Fingerprint}}
+  <script defer src='{{$lazy.RelPermalink}}' integrity="{{ $lazy.Data.Integrity }}"></script>
+  {{ $action:= resources.Get "js/action.js" | resources.Minify | resources.Fingerprint }}
+  <script defer src='{{$action.RelPermalink}}' integrity="{{ $action.Data.Integrity }}"></script>
+  

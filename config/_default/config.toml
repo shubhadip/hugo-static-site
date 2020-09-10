@@ -1,0 +1,54 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "My New Hugo Site"
+Description = "Generating Static Site using Hugo !"
+assetDir = "static"
+relativeURLs = true
+canonifyURLs = false
+enableRobotsTXT = true
+disableHugoGeneratorInject = true
+publishDir = "public"
+disableKinds = ["taxonomy", "taxonomyTerm"]
+[params]
+  og_image = "/images/testing-hugo-images.jpeg"
+  sitename = "Hugo Example"
+[build]
+  useResourceCacheWhen = "never"
+[sitemap]
+  filename = "sitemap.xml"
+[markup.goldmark.renderer]
+unsafe= true
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = false
+  [minify.tdewolff]
+    [minify.tdewolff.css]
+      decimals = -1
+      keepCSS2 = true
+    [minify.tdewolff.html]
+      keepConditionalComments = true
+      keepDefaultAttrVals = true
+      keepDocumentTags = true
+      keepEndTags = true
+      keepWhitespace = false
+    [minify.tdewolff.js]
+    [minify.tdewolff.json]
+    [minify.tdewolff.svg]
+      decimals = -1
+    [minify.tdewolff.xml]
+      keepWhitespace = false
+  [caches]
+[caches.images]
+dir = ":resourceDir/_gen"
+maxAge = "48h"
+[caches.assets]
+dir = ":resourceDir/_gen"
+maxAge = "48h"
+[caches.modules]
+dir = ":cacheDir/modules"
+maxAge = "48h"
